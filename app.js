@@ -9,9 +9,14 @@ const app = express();
 // set view to hbs
 app.set("view engine", "hbs");
 
+const Artwork = require("./models/Artworks");
+
 app.get("/", (req, res) => {
-  res.render("index");
+  Artwork.find({}).then(artworks => {
+    res.render("index", { artworks });
+  });
 });
+
 // test server
 app.listen(3000, (req, res) => {
   console.log("Server is working. Get ready for some sweet manga artwork!");
