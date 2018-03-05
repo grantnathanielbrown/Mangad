@@ -14,4 +14,12 @@ router.get("/new", (req, res) => {
   res.render("CRUD/new");
 });
 
+router.post("/", (req, res) => {
+  console.log(req.body);
+  Artwork.create(req.body).then(artwork => {
+    console.log(artwork);
+    // res.render("/artwork");
+  });
+});
+
 module.exports = router;
