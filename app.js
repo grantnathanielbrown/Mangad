@@ -6,8 +6,11 @@ const passport = require("passport");
 
 const app = express();
 
+const artworksController = require("./controllers/artworks");
+
 app.use(express.static("public"));
 
+app.use("/artwork", artworksController);
 // set view to hbs
 app.set("view engine", "hbs");
 
@@ -18,6 +21,7 @@ app.get("/", (req, res) => {
     res.render("index", { artworks });
   });
 });
+
 // if you get a bunch of documents at once, it becomes an array. if you just get one, you can access it as if it were an object.
 // if i want just one document to show up, use findone
 
