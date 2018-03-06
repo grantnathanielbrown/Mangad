@@ -25,6 +25,13 @@ app.get("/", (req, res) => {
     res.render("index", { artworks });
   });
 });
+
+app.post("/", (req, res) => {
+  console.log(req.body);
+  Artwork.create(req.body).then(() => {
+    res.render("index");
+  });
+});
 // if you get a bunch of documents at once, it becomes an array. if you just get one, you can access it as if it were an object.
 // if i want just one document to show up, use findone
 
