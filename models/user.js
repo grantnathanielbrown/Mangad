@@ -1,3 +1,4 @@
+// had all this
 const mongoose = require("../db/connection");
 const bcrypt = require("bcrypt-nodejs");
 
