@@ -21,11 +21,15 @@
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "hbs": "^4.0.1",
     "method-override": "^2.3.10",
     "mongoose": "^5.0.8",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "session": "^0.1.0",
+    "sessions": "0.0.2-7"
   }
 }

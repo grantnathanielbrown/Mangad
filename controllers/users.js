@@ -8,8 +8,9 @@ var passport = require("passport");
 
 // GET /signup
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", { message: req.flash("signupMessage") });
 });
+
 // POST /signup
 router.post("/signup", (req, res) => {
   var signupStrategy = passport.authenticate("local-signup", {
@@ -26,6 +27,5 @@ router.get("/login", (req, res) => {
 });
 // POST /login
 // GET /logout
-//
 
 module.exports = router;

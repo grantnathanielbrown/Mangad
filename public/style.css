@@ -1,9 +1,19 @@
 body {
-  color: red;
+  /* font-family: "Raleway, sans-serif"; */
+  background-color: black;
+  color: #39aeec;
 }
-img {
-  max-width: 500px;
+nav {
+  font-size: 32px;
+}
+.artwork-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.index-img {
   max-height: 500px;
   width: auto;
   height: auto;
+  margin: 20px;
 }

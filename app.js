@@ -1,15 +1,18 @@
 // require dependencies
 const express = require("express");
+const app = express();
 const hbs = require("hbs");
 const parser = require("body-parser");
 const method = require("method-override");
 const passport = require("passport");
-
-const app = express();
+const session = require("express-session");
+const flash = require("connect-flash");
 
 require("./config/passport")(passport);
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(flash());
 
 const artworksController = require("./controllers/artworks");
 const usersController = require("./controllers/users");
