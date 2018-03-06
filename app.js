@@ -12,6 +12,11 @@ require("./config/passport")(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(
+  session({
+    secret: "Grant-Secret"
+  })
+);
 app.use(flash());
 
 const artworksController = require("./controllers/artworks");
@@ -35,10 +40,16 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/:id", (req, res) => {
+  Artwork.findOne({ _id: req.params.id }).then(artwork => {
+    res.render("show", artwork);
+  });
+});
+
 app.post("/", (req, res) => {
   console.log(req.body);
   Artwork.create(req.body).then(() => {
-    res.render("index");
+    res.redirect("/");
   });
 });
 
