@@ -7,6 +7,10 @@ const passport = require("passport");
 
 const app = express();
 
+require("./config/passport")(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 const artworksController = require("./controllers/artworks");
 
 app.use(express.static("public"));

@@ -5,6 +5,7 @@ const ArtworkSchema = new mongoose.Schema({
   url: String
   // consider adding createdAt and user
 });
+// consider adding comments schema
 
 const Artwork = mongoose.model("Artwork", ArtworkSchema);
 
