@@ -32,6 +32,11 @@ app.post("/", (req, res) => {
     res.render("index");
   });
 });
+
+// app.delete("/", (req, res) => {
+//   console.log(req.body);
+// });
+
 // if you get a bunch of documents at once, it becomes an array. if you just get one, you can access it as if it were an object.
 // if i want just one document to show up, use findone
 
