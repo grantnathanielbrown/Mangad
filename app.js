@@ -12,10 +12,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const artworksController = require("./controllers/artworks");
+const usersController = require("./controllers/users");
 
 app.use(express.static("public"));
 
 app.use("/artwork", artworksController);
+app.use("/", usersController);
 // set view to hbs
 app.set("view engine", "hbs");
 
