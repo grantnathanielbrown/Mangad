@@ -47,6 +47,9 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/new", (req, res) => {
+  res.render("new");
+});
 app.get("/:id", (req, res) => {
   Artwork.findOne({ _id: req.params.id }).then(artwork => {
     res.render("show", artwork);
@@ -60,7 +63,7 @@ app.post("/", (req, res) => {
   });
 });
 
-app.delete("/:id", (req, res) => {
+app.delete("/", (req, res) => {
   console.log(req.params.id);
   Artwork.findOneAndRemove({ _id: req.params.id }).then(() => {
     res.redirect("/");
