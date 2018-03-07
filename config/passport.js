@@ -1,7 +1,7 @@
 // was blank. Copied from our in-class exercise
 // check if 2nd passport.use is supposed to be inside entire function
 var LocalStrategy = require("passport-local").Strategy;
-var User = require("../models/user");
+var User = require("../models/User");
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, callback) {
@@ -22,22 +22,17 @@ module.exports = function(passport) {
         passReqToCallback: true
       },
       function(req, email, password, callback) {
-        // Find a user with this e-mail
-        console.log("we are in the passport function");
         User.findOne({ "local.email": email }, function(err, user) {
           if (err) return callback(err);
 
-          // If there already is a user with this email
           if (user) {
             return callback(
               null,
               false,
-              req.flash("signupMessage", "This email is already used.")
+              req.flash("signupMessage", "This email is already in use!")
             );
           } else {
-            // There is no email registered with this emai
-            // Create a new user
-            var newUser = new User();
+            let newUser = new User();
             newUser.local.email = email;
             newUser.local.password = newUser.encrypt(password);
 

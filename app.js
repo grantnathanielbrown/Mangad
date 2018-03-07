@@ -3,34 +3,41 @@ const express = require("express");
 const app = express();
 const hbs = require("hbs");
 const parser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const method = require("method-override");
 const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
 
-require("./config/passport")(passport);
-app.use(passport.initialize());
-app.use(passport.session());
+app.set("view engine", "hbs");
+
+app.use(cookieParser());
+app.use(parser.urlencoded({ extended: true }));
+app.use(method("_method"));
 
 app.use(
   session({
-    secret: "Grant-Secret"
+    secret: "Grant-Secret",
+    resave: true,
+    saveUninitialized: true
   })
 );
 app.use(flash());
 
+require("./config/passport")(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 const artworksController = require("./controllers/artworks");
 const usersController = require("./controllers/users");
 
+app.use("/artwork", artworksController);
+// change to user
+app.use("/", usersController);
+
 app.use(express.static("public"));
 
-app.use("/artwork", artworksController);
-app.use("/", usersController);
 // set view to hbs
-app.set("view engine", "hbs");
-
-app.use(parser.urlencoded({ extended: true }));
-app.use(method("_method"));
 
 const Artwork = require("./models/Artworks");
 
@@ -59,6 +66,15 @@ app.delete("/:id", (req, res) => {
     res.redirect("/");
   });
 });
+
+app.put("/:id", (req, res) => {
+  Artwork.findOneAndUpdate({ _id: req.params.id }, req.body.artwork).then(
+    artwork => {
+      res.redirect("/");
+    }
+  );
+});
+
 // app.delete("/", (req, res) => {
 //   console.log(req.body);
 // });

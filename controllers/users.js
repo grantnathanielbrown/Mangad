@@ -23,6 +23,7 @@ router.post("/signup", (req, res) => {
 
   return signupStrategy(req, res);
 });
+
 // GET /login
 router.get("/login", (req, res) => {
   res.render("login", { message: req.flash("loginMessage") });
