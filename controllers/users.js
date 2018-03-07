@@ -8,7 +8,9 @@ var passport = require("passport");
 
 // GET /signup
 router.get("/signup", (req, res) => {
-  res.render("signup", { message: req.flash("signupMessage") });
+  var flashMessage = req.flash("signupMessage");
+  // console.log(flashMessage);
+  res.render("signup", { message: flashMessage });
 });
 
 // POST /signup

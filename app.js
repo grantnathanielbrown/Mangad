@@ -53,6 +53,12 @@ app.post("/", (req, res) => {
   });
 });
 
+app.delete("/:id", (req, res) => {
+  console.log(req.params.id);
+  Artwork.findOneAndRemove({ _id: req.params.id }).then(() => {
+    res.redirect("/");
+  });
+});
 // app.delete("/", (req, res) => {
 //   console.log(req.body);
 // });
@@ -61,8 +67,8 @@ app.post("/", (req, res) => {
 // if i want just one document to show up, use findone
 
 // test server
-//
-app.set("port", process.env.PORT || 3001);
+
+app.set("port", process.env.PORT || 3000);
 
 app.listen(app.get("port"), () => {
   console.log("Server is working! Get ready for some awesome manga artwork!");

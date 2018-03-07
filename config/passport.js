@@ -1,4 +1,4 @@
-// was blank
+// was blank. Copied from our in-class exercise on passport
 var LocalStrategy = require("passport-local").Strategy;
 var User = require("../models/user");
 
@@ -22,6 +22,7 @@ module.exports = function(passport) {
       },
       function(req, email, password, callback) {
         // Find a user with this e-mail
+        console.log("we are in the passport function");
         User.findOne({ "local.email": email }, function(err, user) {
           if (err) return callback(err);
 
