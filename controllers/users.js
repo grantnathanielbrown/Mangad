@@ -25,9 +25,22 @@ router.post("/signup", (req, res) => {
 });
 // GET /login
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { message: req.flash("loginMessage") });
 });
 // POST /login
+router.post("/login", (req, res) => {
+  var loginProperty = passport.authenticate("local-login", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true
+  });
+
+  return loginProperty(req, res);
+});
 // GET /logout
 
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
 module.exports = router;
