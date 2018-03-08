@@ -1,7 +1,7 @@
 // was blank. Copied from our in-class exercise
 // check if 2nd passport.use is supposed to be inside entire function
 var LocalStrategy = require("passport-local").Strategy;
-var User = require("../models/User");
+var User = require("./models/User");
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, callback) {
