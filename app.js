@@ -58,25 +58,27 @@ app.get("/:id", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   Artwork.create(req.body).then(() => {
     res.redirect("/");
   });
 });
 
 app.delete("/:id", (req, res) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   Artwork.findOneAndRemove({ _id: req.params.id }).then(() => {
     res.redirect("/");
   });
 });
 
 app.put("/:id", (req, res) => {
-  Artwork.findOneAndUpdate({ _id: req.params.id }, req.body.artwork).then(
-    artwork => {
-      res.redirect("/");
-    }
-  );
+  console.log("enter put request before findOneAndUpdate");
+  console.log(JSON.stringify(req.body));
+  Artwork.findOneAndUpdate({ _id: req.params.id }, req.body).then(artwork => {
+    console.log(`req.params.id ${req.params.id}`);
+    // if you can get it to work, do redirect to /:id
+    res.redirect("/");
+  });
 });
 
 // app.delete("/", (req, res) => {

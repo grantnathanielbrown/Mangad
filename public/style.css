@@ -18,3 +18,15 @@ nav {
   height: auto;
   margin: 20px;
 }
+
+input {
+  border-radius: 16px;
+  color: #39aeec;
+}
+input[type="submit"] {
+  background-color: grey;
+}
+
+.form-group {
+  width: 18%;
+}

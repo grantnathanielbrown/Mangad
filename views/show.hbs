@@ -4,3 +4,11 @@
 <form action="/{{_id}}?_method=delete" method="POST">
     <input type="submit" value="Delete">
 </form>
+
+<form action="/{{_id}}?_method=put" method="POST">
+    <label>Edit Title:</label>
+    <input type="text" name="title">
+    <label>Edit URL:</label>
+    <input type="text" name="url">
+    <input type="submit" value="Edit">
+</form>
