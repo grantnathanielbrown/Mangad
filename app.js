@@ -28,6 +28,13 @@ require("./config/passport")(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+require("./config/passport")(passport);
+
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 const artworksController = require("./controllers/artworks");
 const usersController = require("./controllers/users");
 
@@ -42,9 +49,11 @@ app.use(express.static("public"));
 const Artwork = require("./models/Artworks");
 
 app.get("/", (req, res) => {
-  Artwork.find({}).then(artworks => {
-    res.render("index", { artworks });
-  });
+  Artwork.find({})
+    .sort({ createdAt: -1 })
+    .then(artworks => {
+      res.render("index", { artworks });
+    });
 });
 // added this
 app.get("/new", (req, res) => {

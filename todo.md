@@ -1,6 +1,5 @@
 * do some css stuff
-* list images by date created
-* get authentication to work
+* hide new image button on login
 * do screencast
 
 * deploy again
