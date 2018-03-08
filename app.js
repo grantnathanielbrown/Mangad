@@ -61,9 +61,10 @@ app.get("/new", (req, res) => {
 });
 
 app.get("/:id", (req, res) => {
-  Artwork.findOne({ _id: req.params.id }).then(artwork => {
-    res.render("show", artwork);
-  });
+  if (req.isAuthenticated())
+    Artwork.findOne({ _id: req.params.id }).then(artwork => {
+      res.render("show", artwork);
+    });
 });
 
 app.post("/", (req, res) => {
