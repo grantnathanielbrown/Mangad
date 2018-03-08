@@ -1,25 +1,9 @@
 <h1 class="above"> Click on an image to view it in fullscreen.</h1>
 {{#if artworks}}
 <div class="artwork-container">
-    {{#each artworks}} {{!--
-    <h2>{{title}}</h2> --}}
+    {{#each artworks}}
     <a href="{{this.id}}">
-        <img class="index-img" src="{{url}}"> {{!--
-        <a href="/delete/{{this.id}}">Delete This Image</a> --}}
+        <img class="index-img" src="{{url}}">
     </a> {{/each}}
 </div>
-{{/if}} {{!--
-<h1>Title: {{artworks.title}} </h1>
-<h1>Url: {{ artworks.url }} </h1> --}} {{!--
-<h1>Submit a new page!</h1>
-<form action="/" method="POST">
-    <label>Title:</label>
-    <input type="text" name="title">
-    <label>URL:</label>
-    <input type="text" name="url">
-    <input type="submit" value="Submit" />
-</form> --}}
-
-<a href="/new">
-    <input type="submit" value="Submit a new page!">
-</a>
+{{/if}}
