@@ -3,6 +3,10 @@ body {
   background-color: black;
   color: #39aeec;
   font-size: 40px;
+  text-align: center;
+}
+body * {
+  margin: 10px;
 }
 nav {
   font-size: 32px;
@@ -12,6 +16,9 @@ nav {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-around;
+}
+.manga-title {
+  font-size: 50px;
 }
 .index-img {
   max-height: 500px;
@@ -26,6 +33,7 @@ input {
 }
 input[type="submit"] {
   background-color: grey;
+  padding: 10px;
 }
 
 .form-group {
@@ -41,4 +49,8 @@ input[type="submit"] {
 }
 .nav-item {
   margin: 0 50px;
+}
+
+.form-group {
+  margin: 0 0 0 770px;
 }
