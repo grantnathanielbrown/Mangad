@@ -13,6 +13,7 @@ app.set("view engine", "hbs");
 
 app.use(cookieParser());
 app.use(parser.urlencoded({ extended: true }));
+app.use(parser.json())
 app.use(method("_method"));
 
 app.use(
@@ -100,7 +101,7 @@ app.put("/:id", (req, res) => {
 
 // test server
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3003);
 
 app.listen(app.get("port"), () => {
   console.log("Server is working! Get ready for some awesome manga artwork!");
