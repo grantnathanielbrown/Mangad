@@ -1,4 +1,3 @@
-// was blank. Copied from our in-class exercise
 // check if 2nd passport.use is supposed to be inside entire function
 var LocalStrategy = require("passport-local").Strategy;
 var User = require("../models/User.js");
