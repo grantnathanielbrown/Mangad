@@ -8,9 +8,23 @@ body {
 body * {
   margin: 10px;
 }
+
+/* NAVBAR */
 nav {
   font-size: 32px;
 }
+
+.navbar-brand {
+  font-size: 50px;
+}
+#navbarNav {
+  display: flex;
+  justify-content: space-around;
+}
+.nav-item {
+  margin: 0 50px;
+}
+
 .artwork-container {
   display: flex;
   flex-direction: row;
@@ -21,11 +35,13 @@ nav {
   font-size: 50px;
 }
 .index-img {
-  max-height: 625px;
+  max-height: 300px;
   width: auto;
   height: auto;
   margin: 20px;
 }
+
+/* INPUTS */
 
 input {
   border-radius: 16px;
@@ -40,17 +56,12 @@ input[type="submit"] {
   width: 18%;
 }
 
-.navbar-brand {
-  font-size: 50px;
-}
-#navbarNav {
+/* LOGIN / SIGNUP */
+
+.form-container {
   display: flex;
-  justify-content: space-around;
-}
-.nav-item {
-  margin: 0 50px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form-group {
-  margin: 0 0 0 770px;
-}
+

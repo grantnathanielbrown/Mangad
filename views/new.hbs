@@ -1,9 +1,18 @@
-{{!-- added this --}}
-<h1>Submit a new page!</h1>
-<form action="/" method="POST">
+<h1>Link a new image!</h1>
+<form action="/newSubmit" method="POST">
     <label>Title:</label>
     <input type="text" name="title">
     <label>URL:</label>
     <input type="text" name="url">
+    <input type="hidden" name="author" value={{currentUser.local.email}}>
     <input type="submit" value="Submit" />
 </form>
+
+{{!-- <h1>Upload an image from your computer!</h1>
+<form ref="uploadForm" id="uploadForm" action="/newUpload" encType="multipart/form-data" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title">
+    <input type="hidden" name="author" value={{currentUser.local.email}}>
+    <input type="file" name="sampleFile" />
+    <input type="submit" value="Upload" />
+</form> --}}
