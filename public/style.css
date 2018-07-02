@@ -11,7 +11,7 @@ body * {
 
 /* NAVBAR */
 nav {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .navbar-brand {
@@ -22,9 +22,13 @@ nav {
   justify-content: space-around;
 }
 .nav-item {
-  margin: 0 50px;
+  margin: 0 20px;
 }
 
+.loggedas {
+  margin: 18px 0px 0px 0px;
+  color: grey;
+}
 .artwork-container {
   display: flex;
   flex-direction: row;
