@@ -12,11 +12,14 @@ const reload = require('reload');
 const helpers = require('handlebars-helpers')({
   hbs: hbs
 })
-const fileUpload = require('express-fileupload');
-
+// const fileUpload = require('express-fileupload');
+// const anime = require('animejs');
+const sass = require('sass')
+const compass = require('compass')
 app.set("view engine", "hbs");
 
-app.use(fileUpload());
+// app.use(fileUpload());
+// app.use(anime());
 app.use(cookieParser());
 app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json())
@@ -136,4 +139,11 @@ app.listen(app.get("port"), () => {
  
 // app.listen(app.get('port'), function () {
 //   console.log('Reload is working! ' + app.get('port'))
+// })
+// export function reveal(var relativeOffset = anime.timeline();
+// relativeOffset.add({
+//   targets: ".index-img",
+//   delay: function(el, i) { return i * 1000 },
+//   opacity: 1,
+//   easing: 'linear',
 // })

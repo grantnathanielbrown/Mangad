@@ -1,9 +1,39 @@
+{{!-- <script src="anime.min.js">
+    var relativeOffset = anime.timeline();
+relativeOffset.add({
+  targets: ".index-img",
+  delay: function(el, i) { return i * 1000 },
+  opacity: 1,
+  easing: 'linear',
+})
+</script> --}}
+
+{{!-- 
+
+ --}}
 <h4 class="above"> Click on an image to view it in fullscreen. In order to submit images, or edit images that you've already submitted, please log in!</h4>
 {{#if artworks}}
 <div class="artwork-container">
+    {{!-- <button onClick="f">this does f</button> --}}
     {{#each artworks}}
     <a href="{{this.id}}">
         <img class="index-img" src="{{url}}">
     </a> {{/each}}
 </div>
 {{/if}}
+<script>
+    var mangaImages = document.querySelectorAll('.index-img');
+    function addReveal() {
+        mangaImages[i].className += ' reveal';
+    }
+    var i = 0;
+    function f () {
+        console.log('images are disappearing now')
+        addReveal();
+        i++;
+        if (i < mangaImages.length) {
+        setTimeout(f, 100);
+        }
+    }
+f();
+</script>

@@ -43,6 +43,7 @@ nav {
   width: auto;
   height: auto;
   margin: 20px;
+  opacity: 0;
 }
 
 /* INPUTS */
@@ -68,4 +69,15 @@ input[type="submit"] {
   align-items: center;
 }
 
+/* FRONT PAGE */
 
+.reveal {
+  animation-name: reveal;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes reveal {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
