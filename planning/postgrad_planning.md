@@ -1,15 +1,8 @@
-# What do I need
+## Visuals
 
-## Essentials
-- pay heroku?
-
-
-
-
-
-## Misc
+## Misc in order of priorities
 - users can upload images
-
+    
 
 - comments on images
 - users can tag images
