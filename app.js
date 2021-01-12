@@ -42,7 +42,7 @@ require("./config/passport")(passport);
 
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
-  console.log(req.user);
+  console.log('this is the user ',req.user);
   next();
 });
 
@@ -86,23 +86,6 @@ app.post("/newSubmit", (req, res) => {
   });
 });
 
-app.post('/newUpload', function(req, res) {
-  console.log("req.files is this " + req.files)
-  if (!req.files)
-    return res.status(400).send('No files were uploaded.');
- 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  let sampleFile = req.files.sampleFile;
- 
-  // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv('/somewhere/on/your/server/filename.jpg', function(err) {
-    if (err)
-      return res.status(500).send(err);
- 
-    res.send('File uploaded!');
-  });
-});
-
 app.delete("/:id", (req, res) => {
   // console.log(req.params.id);
   Artwork.findOneAndRemove({ _id: req.params.id }).then(() => {
@@ -120,13 +103,6 @@ app.put("/:id", (req, res) => {
   });
 });
 
-// app.delete("/", (req, res) => {
-//   console.log(req.body);
-// });
-
-// if you get a bunch of documents at once, it becomes an array. if you just get one, you can access it as if it were an object.
-// if i want just one document to show up, use findone
-
 // test server
 
 app.set("port", process.env.PORT || 3003);
@@ -134,16 +110,3 @@ app.set("port", process.env.PORT || 3003);
 app.listen(app.get("port"), () => {
   console.log("Server is working! Get ready for some awesome manga artwork!");
 });
-
-// reload(app);
- 
-// app.listen(app.get('port'), function () {
-//   console.log('Reload is working! ' + app.get('port'))
-// })
-// export function reveal(var relativeOffset = anime.timeline();
-// relativeOffset.add({
-//   targets: ".index-img",
-//   delay: function(el, i) { return i * 1000 },
-//   opacity: 1,
-//   easing: 'linear',
-// })

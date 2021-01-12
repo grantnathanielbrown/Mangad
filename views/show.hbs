@@ -1,5 +1,5 @@
 <h2 class="manga-title">{{title}}</h2>
-<img src="{{url}}">
+<img src="{{url}}" alt="Image not found." onerror=this.src="https://i.imgur.com/5vuDBOj.png">
 <h4>Submitted by: {{author}}</h4>
 
 {{#compare currentUser.local.email "==" author}}
@@ -13,7 +13,7 @@
     <input type="text" value="{{title}}" name="title">
     <label>Edit URL:</label>
     <input type="text" value="{{url}}" name="url">
-    <input type="submit" value="Edit">
+    <input type="submit" value="Update">
 </form>
 
 {{/compare}}
