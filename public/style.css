@@ -81,3 +81,9 @@ input[type="submit"] {
   from {opacity: 0;}
   to {opacity: 1;}
 }
+
+/* MOBILE */
+
+/* @media (max-width: 426px) {
+
+} */
