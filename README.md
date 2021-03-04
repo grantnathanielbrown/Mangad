@@ -27,7 +27,8 @@ Javascript
 #### Frameworks / Environments
 
 Bootstrap
-node.js
+node.js 
+Handlebars
 
 #### node.js Dependencies
 
